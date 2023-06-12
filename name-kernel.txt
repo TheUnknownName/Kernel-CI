@@ -1,6 +1,6 @@
 #INFORMATION KERNEL
 link_kernel=https://github.com/Rem01Gaming/liquid_kernel_realme_even
-name_zip=Liquid-316-slmk
+name_zip=Liquid-317-slmk
 local_version=-liquidfy
 kbuild_user=Remu
 kbuild_host=Chan
