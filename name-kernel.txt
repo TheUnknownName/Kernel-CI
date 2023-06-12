@@ -6,7 +6,11 @@ kbuild_user=Remu
 kbuild_host=Chan
 device_name=<b>realme C25/C25s</b> (even)
 vendor_name=RUI2
+
+#OPTION FOR COMPILER
 defconfig_name=even_slmk_defconfig
+  #just for incase for slmk
+defconfig_flag=-Wunused-variable
 
 #INFORMATION LINK COMPILER
 link_gcc_aarch64=https://github.com/EternalX-project/aarch64-linux-gnu.git

@@ -15,6 +15,7 @@ NAME_KERNEL=$(grep name_zip $NAME_KERNEL_FILE | cut -f2 -d"=" )
 VENDOR_NAME=$(grep vendor_name $NAME_KERNEL_FILE | cut -f2 -d"=" )
 DEVICE_NAME=$(grep device_name $NAME_KERNEL_FILE | cut -f2 -d"=" )
 DEFCONFIG_NAME=$(grep defconfig_name $NAME_KERNEL_FILE | cut -f2 -d"=" )
+DEFCONFIG_FLAG=$(grep defconfig_flag $NAME_KERNEL_FILE | cut -f2 -d"=" )
 
 #INFORMATION GATHER LINK
 LINK_KERNEL=$(grep link_kernel $NAME_KERNEL_FILE | cut -f2 -d"=" )
@@ -118,7 +119,7 @@ error_handler() {
 compile() {
   cd ~/kernel
   #ubah nama kernel dan dev builder
-  printf "\nFinal Repository kernel Should Look Like...\n" && ls -lAog
+  printf "\nFinal Repository kernel Should Look Like...\n" && ls -lAog ~/kernel
   export ARCH=arm64
 
   #mulai mengcompile kernel
@@ -135,7 +136,7 @@ compile() {
     CROSS_COMPILE="${PWD}/aarch64-gcc/bin/aarch64-linux-gnu-" \
     CROSS_COMPILE_ARM32="${PWD}/aarch32-gcc/bin/arm-linux-gnueabihf-" \
     CONFIG_NO_ERROR_ON_MISMATCH=y \
-    V=0 
+    V=0 $DEFCONFIG_FLAG
 
   cp out/arch/arm64/boot/Image.gz-dtb ~/AnyKernel
 }
