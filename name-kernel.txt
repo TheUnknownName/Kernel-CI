@@ -1,7 +1,7 @@
 #INFORMATION KERNEL
 link_kernel=https://github.com/Rem01Gaming/liquid_kernel_realme_even
-name_zip=Liquid-316-slmk
-local_version=-liquidfy
+name_zip=Liquid-v4.14.317-slmk
+local_version=-Liquidfy
 kbuild_user=Remu
 kbuild_host=Chan
 device_name=<b>realme C25/C25s</b> (even)
