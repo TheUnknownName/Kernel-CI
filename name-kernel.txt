@@ -1,16 +1,16 @@
 #INFORMATION KERNEL
 link_kernel=https://github.com/Rem01Gaming/liquid_kernel_realme_even
-name_zip=Liquid-316-slmk
+name_zip=Liquid-318-slmk
 local_version=-liquidfy
-kbuild_user=Remu
-kbuild_host=Chan
+kbuild_user=TUNBudi06
+kbuild_host=AndroidTermux
 device_name=<b>realme C25/C25s</b> (even)
 vendor_name=RUI2
 
 #OPTION FOR COMPILER
 defconfig_name=even_slmk_defconfig
   #just for incase for slmk
-defconfig_flag=-Wunused-variable
+
 
 #INFORMATION LINK COMPILER
 link_gcc_aarch64=https://github.com/EternalX-project/aarch64-linux-gnu.git
