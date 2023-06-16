@@ -17,3 +17,7 @@ link_gcc_aarch64=https://github.com/EternalX-project/aarch64-linux-gnu.git
 link_gcc_arm=https://github.com/EternalX-project/arm-linux-gnueabi.git
 link_clang=https://github.com/SayuZX/android_prebuilts_clang_host_linux-x86_clang-r437112.git
 link_anykernel=https://github.com/TheUnknownName/AnyKernel3.git -b even-liq
+
+
+#OUTPUT RESULT
+tg_chat=-1001857624835
