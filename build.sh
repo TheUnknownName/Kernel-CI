@@ -4,7 +4,7 @@ TANGGAL=$(date +"%F-%S")
 START=$(date +"%s")
 KERNEL_DIR=$(pwd)
 NAME_KERNEL_FILE="$1"
-chat_id="$TG_CHAT"
+chat_id="$(grep tg_chat $NAME_KERNEL_FILE | cut -f2 -d"=" )"
 token="6135461084:AAEH5rfzSv8vyANuGDb5MQM18vqHi3Dbvsg"
 
 #INFROMATION NAME KERNEL
