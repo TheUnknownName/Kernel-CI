@@ -150,7 +150,7 @@ compile() {
   make O=out ARCH=arm64 $DEFCONFIG_NAME
 
   PATH="${PWD}/clang/bin:${PATH}:${PWD}/aarch32-gcc/bin:${PATH}:${PWD}/aarch64-gcc/bin:${PATH}" \
-  make -j$(nproc --all) O=out \
+  make -o3 -j$(nproc --all) O=out \
     ARCH=arm64 \
     CC="clang" \
     CLANG_TRIPLE=aarch64-linux-gnu- \
