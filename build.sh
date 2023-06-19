@@ -104,7 +104,8 @@ push() {
     -F "parse_mode=html" \
     -F caption="
                           Build took ${minutes} minute(s) and ${seconds} second(s).
-For ${DEVICE_NAME} |\n Build By <b>$KBUILD_BUILD_USER</b>
+For ${DEVICE_NAME}
+Build By <b>$KBUILD_BUILD_USER</b>
 <b>SHA512SUM</b>: <code>$sha512_hash</code>"
   curl -F document=@$ZIP2 "https://api.telegram.org/bot$token/sendDocument" \
     -F chat_id="$chat_id" \
