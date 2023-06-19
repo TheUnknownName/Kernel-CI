@@ -79,15 +79,15 @@ sendinfo() {
     -d "parse_mode=html" \
     -d text="
                     <b>$NAME_KERNEL</b>
-                    Build started on <code>CirrusCI</code>
-                    For device ${DEVICE_NAME}
-                    Build By <b>$KBUILD_BUILD_USER</b>
-                    USING DEFCONFIG <b>$DEFCONFIG_NAME</b>
-                    branch <code>$(git rev-parse --abbrev-ref HEAD)</code> (master)
-                    Under commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code>
-                    Using compiler: <code>$(~/kernel/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/ */ /g')</code>
-                    Started on <code>$(date)</code>
-                    <b>Build Status:</b> Beta"
+Build started on <code>CirrusCI</code>
+For device ${DEVICE_NAME}
+Build By <b>$KBUILD_BUILD_USER</b>
+USING DEFCONFIG <b>$DEFCONFIG_NAME</b>
+branch <code>$(git rev-parse --abbrev-ref HEAD)</code> (master)
+Under commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code>
+Using compiler: <code>$(~/kernel/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/ */ /g')</code>
+Started on <code>$(date)</code>
+<b>Build Status:</b> Beta"
 }
 
 push() {
@@ -104,16 +104,16 @@ push() {
     -F "parse_mode=html" \
     -F caption="
                           Build took ${minutes} minute(s) and ${seconds} second(s).
-                          For ${DEVICE_NAME} |\n Build By <b>$KBUILD_BUILD_USER</b>
-                          <b>SHA512SUM</b>: <code>$sha512_hash</code>"
+For ${DEVICE_NAME} |\n Build By <b>$KBUILD_BUILD_USER</b>
+<b>SHA512SUM</b>: <code>$sha512_hash</code>"
   curl -F document=@$ZIP2 "https://api.telegram.org/bot$token/sendDocument" \
     -F chat_id="$chat_id" \
     -F "disable_web_page_preview=true" \
     -F "parse_mode=html" \
     -F caption="
                           LOGGER BUILD FILE
-                          took ${minutes} minute(s) and ${seconds} second(s).
-                          USING DEFCONFIG <b>$DEFCONFIG_NAME</b> "
+took ${minutes} minute(s) and ${seconds} second(s).
+USING DEFCONFIG <b>$DEFCONFIG_NAME</b> "
 }
 
 
@@ -130,10 +130,10 @@ error_handler() {
     -F "parse_mode=html" \
     -F caption="
                           Build encountered an error.
-                          took ${minutes} minute(s) and ${seconds} second(s).
-                          USING DEFCONFIG <b>$DEFCONFIG_NAME</b>
-                          For ${DEVICE_NAME}
-                          Build By <b>$KBUILD_BUILD_USER</b> "
+took ${minutes} minute(s) and ${seconds} second(s).
+USING DEFCONFIG <b>$DEFCONFIG_NAME</b>
+For ${DEVICE_NAME}
+Build By <b>$KBUILD_BUILD_USER</b> "
   exit 1
 }
 
