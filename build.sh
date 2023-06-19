@@ -77,7 +77,17 @@ sendinfo() {
     -d chat_id="$chat_id" \
     -d "disable_web_page_preview=true" \
     -d "parse_mode=html" \
-    -d text="<b>$NAME_KERNEL</b>%0A| USING DEFCONFIG <b>$DEFCONFIG_NAME</b> |%0ABuild started on <code>CirrusCI</code>%0AFor device ${DEVICE_NAME} %0A | Build By <b>$KBUILD_BUILD_USER</b> %0A| Local Version: $LOCALVERSION | %0A branch <code>$(git rev-parse --abbrev-ref HEAD)</code> (master)%0AUnder commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code>%0AUsing compiler: <code>$(~/kernel/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/ */ /g')</code>%0AStarted on <code>$(date)</code>%0A<b>Build Status:</b> Beta"
+    -d text="
+                    <b>$NAME_KERNEL</b>
+                    Build started on <code>CirrusCI</code>
+                    For device ${DEVICE_NAME}
+                    Build By <b>$KBUILD_BUILD_USER</b>
+                    USING DEFCONFIG <b>$DEFCONFIG_NAME</b>
+                    branch <code>$(git rev-parse --abbrev-ref HEAD)</code> (master)
+                    Under commit <code>$(git log --pretty=format:'"%h : %s"' -1)</code>
+                    Using compiler: <code>$(~/kernel/clang/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/ */ /g')</code>
+                    Started on <code>$(date)</code>
+                    <b>Build Status:</b> Beta"
 }
 
 push() {
@@ -92,12 +102,18 @@ push() {
     -F chat_id="$chat_id" \
     -F "disable_web_page_preview=true" \
     -F "parse_mode=html" \
-    -F caption="Build took ${minutes} minute(s) and ${seconds} second(s). |\n USING DEFCONFIG <b>$DEFCONFIG_NAME</b> |\n For ${DEVICE_NAME} |\n Build By <b>$KBUILD_BUILD_USER</b> |\n Local Version: $LOCALVERSION |\n <b>$(${GCC}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</b> |\n <b>SHA512SUM</b>: <code>$sha512_hash</code>"
+    -F caption="
+                          Build took ${minutes} minute(s) and ${seconds} second(s).
+                          For ${DEVICE_NAME} |\n Build By <b>$KBUILD_BUILD_USER</b>
+                          <b>SHA512SUM</b>: <code>$sha512_hash</code>"
   curl -F document=@$ZIP2 "https://api.telegram.org/bot$token/sendDocument" \
     -F chat_id="$chat_id" \
     -F "disable_web_page_preview=true" \
     -F "parse_mode=html" \
-    -F caption="LOGGER BUILD FILE\n took ${minutes} minute(s) and ${seconds} second(s). |\n USING DEFCONFIG <b>$DEFCONFIG_NAME</b> |\n For ${DEVICE_NAME} |\n Build By <b>$KBUILD_BUILD_USER</b> |\n Local Version: $LOCALVERSION "
+    -F caption="
+                          LOGGER BUILD FILE
+                          took ${minutes} minute(s) and ${seconds} second(s).
+                          USING DEFCONFIG <b>$DEFCONFIG_NAME</b> "
 }
 
 
@@ -112,7 +128,12 @@ error_handler() {
     -F chat_id="$chat_id" \
     -F "disable_web_page_preview=true" \
     -F "parse_mode=html" \
-    -F caption="Build encountered an error.\n took ${minutes} minute(s) and ${seconds} second(s). \n USING DEFCONFIG <b>$DEFCONFIG_NAME</b> |\n For ${DEVICE_NAME} |%\n Build By <b>$KBUILD_BUILD_USER</b> |%\n Local Version: $LOCALVERSION"
+    -F caption="
+                          Build encountered an error.
+                          took ${minutes} minute(s) and ${seconds} second(s).
+                          USING DEFCONFIG <b>$DEFCONFIG_NAME</b>
+                          For ${DEVICE_NAME}
+                          Build By <b>$KBUILD_BUILD_USER</b> "
   exit 1
 }
 
