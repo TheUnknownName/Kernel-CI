@@ -20,4 +20,4 @@ link_anykernel=https://github.com/TheUnknownName/AnyKernel3.git -b even-liq
 
 
 #OUTPUT RESULT
-tg_chat=-1001857624835
+tg_chat=-1001423425938
