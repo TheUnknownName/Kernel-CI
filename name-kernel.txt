@@ -1,14 +1,14 @@
 #INFORMATION KERNEL
-link_kernel=https://github.com/Rem01Gaming/liquid_kernel_realme_even
-name_zip=Liquid-316-slmk
-local_version=-liquidfy
+link_kernel=https://github.com/Rem01Gaming/viviz_kernel_even.git
+name_zip=Viviz-v4.14.235
+local_version=-Viviz
 kbuild_user=Remu
 kbuild_host=Chan
 device_name=<b>realme C25/C25s</b> (even)
 vendor_name=RUI2
 
 #OPTION FOR COMPILER
-defconfig_name=even_slmk_defconfig
+defconfig_name=even_defconfig
   #just for incase for slmk
 defconfig_flag=-Wunused-variable
 
@@ -16,7 +16,7 @@ defconfig_flag=-Wunused-variable
 link_gcc_aarch64=https://github.com/EternalX-project/aarch64-linux-gnu.git
 link_gcc_arm=https://github.com/EternalX-project/arm-linux-gnueabi.git
 link_clang=https://github.com/SayuZX/android_prebuilts_clang_host_linux-x86_clang-r437112.git
-link_anykernel=https://github.com/TheUnknownName/AnyKernel3.git -b even-liq
+link_anykernel=https://github.com/TheUnknownName/AnyKernel3.git -b even
 
 
 #OUTPUT RESULT
