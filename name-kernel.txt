@@ -4,7 +4,7 @@ name_zip=Viviz-v4.14.235
 local_version=-Viviz
 kbuild_user=Remu
 kbuild_host=Chan
-device_name=<b>realme C25/C25s</b> (even)
+device_name=<b>realme C25/C25s and Narzo50A</b> (even)
 vendor_name=RUI2
 
 #OPTION FOR COMPILER
