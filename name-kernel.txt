@@ -1,14 +1,14 @@
 #INFORMATION KERNEL
-link_kernel=https://github.com/Rem01Gaming/viviz_kernel_even.git
-name_zip=Viviz-v4.14.235
-local_version=-Viviz
+link_kernel=https://github.com/Rem01Gaming/liquid_kernel_realme_even.git
+name_zip=Liquid-v4.14.319
+local_version=-Liquidfy💦
 kbuild_user=Remu
 kbuild_host=Chan
 device_name=<b>realme C25/C25s and Narzo50A</b> (even)
 vendor_name=RUI2
 
 #OPTION FOR COMPILER
-defconfig_name=even_defconfig
+defconfig_name=even_slmk_defconfig
   #just for incase for slmk
 defconfig_flag=-Wunused-variable
 
