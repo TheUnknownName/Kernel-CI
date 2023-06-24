@@ -138,18 +138,19 @@ compile() {
   make O=out ARCH=arm64 $DEFCONFIG_NAME
 
   PATH="${PWD}/clang/bin:${PATH}" \
-  make -j$(nproc --all) O=out \
-    ARCH=arm64 \
-    LLVM=1 \
-    LLVM_IAS=1 \
-    CC="clang" \
-    LD=ld.lld \
-    NM=llvm-nm \
-    AR=llvm-ar \
-    CLANG_TRIPLE=aarch64-linux-gnu- \
-    CROSS_COMPILE="aarch64-linux-gnu-" \
-    CROSS_COMPILE_ARM32="arm-linux-gnueabihf-" \
-    CONFIG_NO_ERROR_ON_MISMATCH=y
+make -j$(nproc --all) O=out \
+      LLVM=1 \
+      LLVM_IAS=1 \
+      ARCH=arm64 \
+      LD=ld.lld \
+      NM=llvm-nm \
+      AS=llvm-as \
+      AR=llvm-ar \
+      CC="clang" \
+      CLANG_TRIPLE=aarch64-linux-gnu- \
+      CROSS_COMPILE=aarch64-linux-gnu- \
+      CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+      CONFIG_NO_ERROR_ON_MISMATCH=y
 
   cp out/arch/arm64/boot/Image.gz-dtb ~/AnyKernel
 }
