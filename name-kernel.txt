@@ -9,8 +9,6 @@ vendor_name=RUI2
 
 #OPTION FOR COMPILER
 defconfig_name=even_defconfig
-  #just for incase for slmk
-defconfig_flag=-Wunused-variable
 
 #INFORMATION LINK COMPILER
 link_clang=https://github.com/SayuZX/android_prebuilts_clang_host_linux-x86_clang-r437112.git

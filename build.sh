@@ -149,8 +149,7 @@ compile() {
     CLANG_TRIPLE=aarch64-linux-gnu- \
     CROSS_COMPILE="aarch64-linux-gnu-" \
     CROSS_COMPILE_ARM32="arm-linux-gnueabihf-" \
-    CONFIG_NO_ERROR_ON_MISMATCH=y \
-    V=0 $DEFCONFIG_FLAG
+    CONFIG_NO_ERROR_ON_MISMATCH=y
 
   cp out/arch/arm64/boot/Image.gz-dtb ~/AnyKernel
 }
