@@ -19,8 +19,6 @@ DEFCONFIG_FLAG=$(grep defconfig_flag $NAME_KERNEL_FILE | cut -f2 -d"=" )
 
 #INFORMATION GATHER LINK
 LINK_KERNEL=$(grep link_kernel $NAME_KERNEL_FILE | cut -f2 -d"=" )
-LINK_GCC_AARCH64=$(grep link_gcc_aarch64 $NAME_KERNEL_FILE | cut -f2 -d"=" )
-LINK_GCC_ARM=$(grep link_gcc_arm $NAME_KERNEL_FILE | cut -f2 -d"=" )
 LINK_CLANG=$(grep link_clang $NAME_KERNEL_FILE | cut -f2 -d"=" )
 LINK_anykernel=$(grep link_anykernel $NAME_KERNEL_FILE | cut -f2 -d"=" )
 
@@ -33,20 +31,9 @@ clone_git() {
   cd ~/kernel
   # download toolchains
   git clone --depth=1 $LINK_anykernel ~/AnyKernel
-  
-  #proton clang
-  #git clone --depth=1 https://github.com/kdrag0n/proton-clang.git clang
-  
-  #clang 14
+
+   # download toolchains
   git clone --depth=1 $LINK_CLANG clang
-
-  # BY ZYCROMERZ
-  # git clone --depth=1 https://github.com/ZyCromerZ/aarch64-zyc-linux-gnu -b 13 aarch64-gcc
-  # git clone --depth=1 https://github.com/ZyCromerZ/arm-zyc-linux-gnueabi -b 13 aarch32-gcc
-
-  # BY ETERNAL COMPILER
-  git clone --depth=1 $LINK_GCC_AARCH64 aarch64-gcc
-  git clone --depth=1 $LINK_GCC_ARM aarch32-gcc
 }
 
 cleaning_cache() {
@@ -150,13 +137,18 @@ compile() {
 
   make O=out ARCH=arm64 $DEFCONFIG_NAME
 
-  PATH="${PWD}/clang/bin:${PATH}:${PWD}/aarch32-gcc/bin:${PATH}:${PWD}/aarch64-gcc/bin:${PATH}" \
-  make -o3 -j$(nproc --all) O=out \
+  PATH="${PWD}/clang/bin:${PATH}" \
+  make -j$(nproc --all) O=out \
     ARCH=arm64 \
+    LLVM=1 \
+    LLVM_IAS=1 \
     CC="clang" \
+    LD=ld.lld \
+    NM=llvm-nm \
+    AR=llvm-ar \
     CLANG_TRIPLE=aarch64-linux-gnu- \
-    CROSS_COMPILE="${PWD}/aarch64-gcc/bin/aarch64-linux-gnu-" \
-    CROSS_COMPILE_ARM32="${PWD}/aarch32-gcc/bin/arm-linux-gnueabihf-" \
+    CROSS_COMPILE="aarch64-linux-gnu-" \
+    CROSS_COMPILE_ARM32="arm-linux-gnueabihf-" \
     CONFIG_NO_ERROR_ON_MISMATCH=y \
     V=0 $DEFCONFIG_FLAG
 
