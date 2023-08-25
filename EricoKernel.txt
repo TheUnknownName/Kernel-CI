@@ -1,14 +1,14 @@
 #INFORMATION KERNEL
-link_kernel=https://github.com/Rem01Gaming/megumi_kernel_realme_monet.git
-name_zip=Megumi-v1.0
+link_kernel=https://github.com/Rikocristiant/EricoKernel
+name_zip=KONTOL-KERNEL-v1.0
 local_version=
-kbuild_user=Remu
-kbuild_host=Chan
-device_name=<b>Realme C3 and Narzo10A</b> (even)
-vendor_name=RUI2
+kbuild_user=Riko
+kbuild_host=Cristiant
+device_name=<b>Xiaomi Poco M4 Pro</b> (fleur)
+vendor_name=MIUI13
 
 #OPTION FOR COMPILER
-defconfig_name=monet_defconfig
+defconfig_name=fleur_defconfig
   #just for incase for slmk
 defconfig_flag=-Wunused-variable
 
@@ -16,7 +16,7 @@ defconfig_flag=-Wunused-variable
 link_gcc_aarch64=https://github.com/EternalX-project/aarch64-linux-gnu.git
 link_gcc_arm=https://github.com/EternalX-project/arm-linux-gnueabi.git
 link_clang=https://github.com/SayuZX/android_prebuilts_clang_host_linux-x86_clang-r437112.git
-link_anykernel=https://github.com/TheUnknownName/AnyKernel3.git -b monet
+link_anykernel=https://github.com/Rikocristiant/AnyKernel3 -b master
 
 
 #OUTPUT RESULT
