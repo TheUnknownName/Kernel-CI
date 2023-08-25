@@ -1,11 +1,11 @@
 #INFORMATION KERNEL
 link_kernel=https://github.com/Rikocristiant/EricoKernel
-name_zip=Megumi-v1.0
+name_zip=KONTOL-KERNEL-v1.0
 local_version=
 kbuild_user=Riko
 kbuild_host=Cristiant
 device_name=<b>Xiaomi Poco M4 Pro</b> (fleur)
-vendor_name=RUI2
+vendor_name=MIUI 13
 
 #OPTION FOR COMPILER
 defconfig_name=fleur_defconfig
