@@ -1,14 +1,14 @@
 #INFORMATION KERNEL
-link_kernel=https://github.com/Rem01Gaming/megumi_kernel_realme_monet.git
+link_kernel=https://github.com/Rikocristiant/EricoKernel
 name_zip=Megumi-v1.0
 local_version=
-kbuild_user=Remu
-kbuild_host=Chan
-device_name=<b>Realme C3 and Narzo10A</b> (even)
+kbuild_user=Riko
+kbuild_host=Cristiant
+device_name=<b>Xiaomi Poco M4 Pro</b> (fleur)
 vendor_name=RUI2
 
 #OPTION FOR COMPILER
-defconfig_name=monet_defconfig
+defconfig_name=fleur_defconfig
   #just for incase for slmk
 defconfig_flag=-Wunused-variable
 
