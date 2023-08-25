@@ -5,7 +5,7 @@ local_version=
 kbuild_user=Riko
 kbuild_host=Cristiant
 device_name=<b>Xiaomi Poco M4 Pro</b> (fleur)
-vendor_name=MIUI 13
+vendor_name=MIUI13
 
 #OPTION FOR COMPILER
 defconfig_name=fleur_defconfig
